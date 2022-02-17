@@ -66,6 +66,9 @@ def lookupDeviceName(account, device_gid):
     return deviceName
 
 def lookupChannelName(account, chan):
+    if chan.name is not None:
+        return chan.name
+
     if chan.device_gid not in account['deviceIdMap']:
         populateDevices(account)
 
